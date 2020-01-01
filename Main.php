@@ -11,7 +11,7 @@ namespace IdnoPlugins\TwoFactorAuth {
                    'twofactorauth', dirname(__FILE__) . '/languages/'
                )
             );
-        } // , FILE_APPEND
+        }
 
 	function registerPages() {
 
