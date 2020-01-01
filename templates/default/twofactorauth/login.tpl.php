@@ -7,7 +7,7 @@
             <?php echo \Idno\Core\Idno::site()->language()->_('Sign in'); ?>
         </h3>
 
-        <form action="<?= \Idno\Core\site()->config()->url ?>session/login" method="post">
+        <form action="<?= \Idno\Core\Idno::site()->config()->url ?>session/login" method="post">
 	    <input type="hidden" name="email" value="<?= $vars['email']; ?>" />
 	    <input type="hidden" name="password" value="<?= $vars['password']; ?>" />
 	    <input type="hidden" name="fwd" value="<?= $vars['fwd']; ?>" />
@@ -29,7 +29,7 @@
                 </div>
             </div>
             
-            <?= \Idno\Core\site()->actions()->signForm('/session/login') ?>
+            <?= \Idno\Core\Idno::site()->actions()->signForm('/session/login') ?>
         </form>
 
     </div>

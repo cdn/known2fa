@@ -8,7 +8,7 @@
             function getContent()
             {
                 $this->gatekeeper(); // Logged-in users only
-                $t = \Idno\Core\site()->template();
+                $t = \Idno\Core\Idno::site()->template();
                 $body = $t->__([])->draw('twofactorauth/settings');
                 $t->__(['title' => 'Enable 2FA', 'body' => $body])->drawPage();
             }
@@ -16,7 +16,7 @@
             function postContent() {
                 $this->gatekeeper(); // Logged-in users only
                 
-                $session = \Idno\Core\site()->session(); 
+                $session = \Idno\Core\Idno::site()->session(); 
                 $user = $session->currentUser(); 
                 
                 switch ($this->getInput('action')) {

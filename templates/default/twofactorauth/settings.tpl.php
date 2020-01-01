@@ -1,5 +1,5 @@
 <?php
-$session = \Idno\Core\site()->session();
+$session = \Idno\Core\Idno::site()->session();
 $user = $session->currentUser();
 ?>
 <div class="row">
@@ -31,10 +31,10 @@ $user = $session->currentUser();
     			    <?php echo \Idno\Core\Idno::site()->language()->_('Please use the following seed value <strong>%s</strong>, or point your authenticator (e.g. Google Authenticator) at the following QR code.', [$user->twofactorauth_seed]); ?>
     			</p>
     			<p>
-			    <?php if (\Idno\Core\site()->currentPage()->isSSL()) { ?>
-				<img src="<?=\Idno\Core\site()->config()->getDisplayURL()?>twofactorauth/qr.png?size=200&d=<?= urlencode('otpauth://totp/' . $user->email . "?secret=" . $user->twofactorauth_seed . '&issuer=' . urlencode(\Idno\Core\site()->config()->title)); ?>" />
+			    <?php if (\Idno\Core\Idno::site()->currentPage()->isSSL()) { ?>
+				<img src="<?=\Idno\Core\Idno::site()->config()->getDisplayURL()?>twofactorauth/qr.png?size=200&d=<?= urlencode('otpauth://totp/' . $user->email . "?secret=" . $user->twofactorauth_seed . '&issuer=' . urlencode(\Idno\Core\Idno::site()->config()->title)); ?>" />
 			    <?php } else { ?>
-				<img src="https://chart.googleapis.com/chart?chs=200x200&chld=M|0&cht=qr&chl=<?= urlencode('otpauth://totp/' . $user->email . "?secret=" . $user->twofactorauth_seed . '&issuer=' . urlencode(\Idno\Core\site()->config()->title)); ?>" />
+				<img src="https://chart.googleapis.com/chart?chs=200x200&chld=M|0&cht=qr&chl=<?= urlencode('otpauth://totp/' . $user->email . "?secret=" . $user->twofactorauth_seed . '&issuer=' . urlencode(\Idno\Core\Idno::site()->config()->title)); ?>" />
 			    <?php } ?>
     			</p>
     		    </div>
@@ -47,7 +47,7 @@ $user = $session->currentUser();
             </div>
 
 
-	    <?= \Idno\Core\site()->actions()->signForm('/account/twofactorauth/') ?>
+	    <?= \Idno\Core\Idno::site()->actions()->signForm('/account/twofactorauth/') ?>
         </form>
     </div>
 </div>
